@@ -42,15 +42,6 @@ public class Main {
 //            System.out.println();
 //        }
 
-//        System.out.println("Треугольик с прямым углом");
-//
-//        for (int i = 0; i < star; i++) {
-//            for (int j = 0; j < i+1; j++) {
-//                System.out.print(" *");
-//            }
-//            System.out.println();
-//        }
-//
 //        System.out.println("Треугольик с прямым углом While ");
 //        int i = 0;
 //        while (i < star)  {
@@ -236,47 +227,39 @@ public class Main {
 //        }while (i++<star);
 
 
+//        System.out.println("Ромб while ");
 
-        System.out.println("Ромб while контур");
-        int i=0;
-        while (i<star){
-            int j=0;
-            while (j<star-i){
-                System.out.print(" ");
-                j++;
-            }
-            int k=0;
-            while (k<i+1){
-                if (i==0 || k==0 || k==i){
-                    System.out.print(" *");
-                }else
-                    System.out.print("  ");
-                k++;
-            }
-            System.out.println();
-            i++;
-        }
-        int i1=0;
-        while (i1<star-1){
-            int j1=0;
-            while (j1<i1+2){
-                System.out.print(" ");
-                j1++;
-            }
-
-            int k1=0;
-            while (k1<(star-1)-i1){
-                if (  k1==0 || k1==(star-1)-i1-1){
-                    System.out.print(" *");
-                }else
-                    System.out.print("  ");
-                k1++;
-            }
-            System.out.println();
-            i1++;
-        }
-
+//        int i=0;
+//        while (i<star){
+//            int j=0;
+//            while (j<star-i){
+//                System.out.print(" ");
+//                j++;
+//            }
+//            int k=0;
+//            while (k<i+1){
+//                    System.out.print(" *");
+//                k++;
+//            }
+//            System.out.println();
+//            i++;
+//        }
+//        int i1=0;
+//        while (i1<star-1){
+//            int j1=0;
+//            while (j1<i1+2){
+//                System.out.print(" ");
+//                j1++;
+//            }
 //
+//            int k1=0;
+//            while (k1<(star-1)-i1){
+//                    System.out.print(" *");
+//                k1++;
+//            }
+//            System.out.println();
+//            i1++;
+//        }
 
 //        System.out.println("Ромб do while");
 //
@@ -312,5 +295,44 @@ public class Main {
 //        }while (i1++<star-1);
 
 
+//        System.out.println("Ромб while контур");
+//
+//        int i=0;
+//        while (i<star){
+//            int j=0;
+//            while (j<star-i){
+//                System.out.print(" ");
+//                j++;
+//            }
+//            int k=0;
+//            while (k<i+1){
+//                if (i==0 || k==0 || k==i){
+//                    System.out.print(" *");
+//                }else
+//                    System.out.print("  ");
+//                k++;
+//            }
+//            System.out.println();
+//            i++;
+//        }
+//        int i1=0;
+//        while (i1<star-1){
+//            int j1=0;
+//            while (j1<i1+2){
+//                System.out.print(" ");
+//                j1++;
+//            }
+//
+//            int k1=0;
+//            while (k1<(star-1)-i1){
+//                if (  k1==0 || k1==(star-1)-i1-1){
+//                    System.out.print(" *");
+//                }else
+//                    System.out.print("  ");
+//                k1++;
+//            }
+//            System.out.println();
+//            i1++;
+//        }
     }
 }
