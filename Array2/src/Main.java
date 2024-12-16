@@ -1,17 +1,127 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Random;
 public class Main {
     public static void main(String[] args) {
-//        1) Найдите и выведите количество положительных и отрицательных чисел в массиве.
-//        2) Подсчет нулей: Создайте массив из 20 чисел, заполните его случайными числами , и подсчитайте, сколько в нем нулей.
+////        1) Найдите и выведите количество положительных и отрицательных чисел в массиве.
+//        int countPoloj=0;
+//        int countOtritsat=0;
+//        int[]arr={1,-2, 5,4,3,-9,85,6,-55,65};
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i]<0){
+//                countOtritsat++;
+//            }else
+//                countPoloj++;
+//        }
+//        System.out.println("количество положительных чисел: " + countPoloj );
+//        System.out.println("количество отрицательных чисел: " + countOtritsat);
+
+//        2) Подсчет нулей: Создайте массив из 20 чисел, заполните его случайными числами , и подсчитайте, сколько в нем нулей
+//        int []arr=new int[20];
+//        Random random=new Random();
+//        int countNul=0;
+//        for (int i = 0; i < arr.length; i++) {
+//            arr[i]= random.nextInt(-10,10);
+//            System.out.print(arr[i] + " ");
+//            if (arr[i]==0){
+//                countNul++;
+//            }
+//        }System.out.println();
+//        System.out.print("Количество нулей: " + countNul);
+
 //        3) Поиск элементов, равных индексу: Найдите все элементы массива, значения которых равны их индексам.
+//        int[]arr={1,-2, 2,4,3,-9,6,85,-55,65};
+//        int countIndex=0;
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i]==i){
+//                countIndex++;
+//            }
+//        }
+//        System.out.print("значения элементов массива равных их индексам: " + countIndex);
+
 //        4) Удаление элементов: Создайте массив из 15 чисел, замените все отрицательные числа на нули.
+//        int[]arr={1,-2, 2,4,3,-9,6,85,-55,65, 48,35,49,-5,88};
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i]<0){
+//                arr[i]=0;
+//            }
+//            System.out.print(arr[i] + " ");
+//        }
+
 //        5) Дублирование массива: Создайте массив из 15 чисел,а потом каждый элемент удвойти.
+//        int[]arr={1,-2, 2,4,3,-9,6,85,-55,65, 48,35,49,-5,88};
+//        for (int i = 0; i < arr.length; i++) {
+//           arr[i]+=arr[i];
+//            System.out.print(arr[i] + " ");
+//        }
+
 //        6) Подсчет элементов, больших предыдущих: Определите количество элементов массива, которые больше предыдущего элемента.
+//        int[]arr={1,-2, 2,4,3,-9,6,85};
+//        int countBolch=0;
+//        for (int i = 0; i < arr.length-1; i++) {
+//            if (arr[i]<arr[i+1]){
+//                countBolch++;
+//            }
+//        }
+//        System.out.println("количество элементов больше предыдущего элемента: " + countBolch);
+
 //        7) Произведение элементов: Найдите произведение всех элементов массива, кроме нулевых.
+//        int[]arr={-1,-2, 2,0,4};
+//        int proizved=1;
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i]!=0){
+//                proizved=arr[i]*proizved;
+//            }
+//        }
+//        System.out.println("произведение всех элементов массива: " + proizved);
+
+
 //        8) Сравнение крайних элементов: Определите, больше ли сумма первых пяти элементов массива, чем сумма последних пяти.
+//        int[]arr={-12,82, 2,0,4,456,8,2,4,7,58,4,65,1,3};
+//        int sum1=0;
+//        int sum2=0;
+//        for (int i = 0; i < arr.length; i++) {
+//            if (i<5){
+//                sum1+=arr[i];
+//            }
+//            if (arr.length-5<= i){
+//                sum2+=arr[i];
+//            }
+//        }
+//        System.out.println(sum1 + ">" + sum2 + "?");
+//        boolean cpavnenie = true;
+//        if (sum1>sum2){
+//            System.out.println(cpavnenie);
+//        }else
+//            System.out.println(!cpavnenie);
+
 //        9) Поиск двух наименьших элементов: Найдите два наименьших элемента в массиве из 10 чисел.
+//        int[]arr={-12,82, 2,0,4,456,8,2,4,7};
+//        for (int i = 0; i < arr.length; i++) {
+//            for (int j = 0; j < arr.length; j++) {
+//                if (arr[i]<arr[j]){
+//                    int tmp=arr[i];
+//                    arr[i]=arr[j];
+//                    arr[j]=tmp;
+//                }
+//            }
+//        }
+//        for (int i = 0; i < arr.length; i++) {
+//            System.out.print(arr[i] + " ");
+//        }
+//        System.out.println();
+//        System.out.print("два наименьших элемента в массиве " + arr[0] + " " + arr[1]);
+
 //        10) Проверка на упорядоченность: Определите, отсортирован ли массив по возрастанию.
+
+        int[]arr={-12,82, 8,100,104,456};
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i]>arr[i+1]){
+                System.out.println("true");
+                continue;
+            }else
+                System.out.println("Массив  по возрастанию");
+
+
+        }
 //        11) Проверка на упорядоченность: Определите, отсортирован ли массив по убыванию
 //        12) Частота элементов: Подсчитайте, сколько раз каждое число встречается в массиве.
 //        13) Инвертирование знаков: Замените все положительные числа в массиве на отрицательные, и наоборот.

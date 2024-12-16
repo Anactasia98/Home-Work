@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Array2/Array2.iml" filepath="$PROJECT_DIR$/Array2/Array2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Arrays/Arrays.iml" filepath="$PROJECT_DIR$/Arrays/Arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Arrays_uluchsheniye/Arrays_uluchsheniye.iml" filepath="$PROJECT_DIR$/Arrays_uluchsheniye/Arrays_uluchsheniye.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Home-Work.iml" filepath="$PROJECT_DIR$/.idea/Home-Work.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Replace/Replace.iml" filepath="$PROJECT_DIR$/Replace/Replace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/figir_for/figir_for.iml" filepath="$PROJECT_DIR$/figir_for/figir_for.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sliyaniye_dvukh_array/sliyaniye_dvukh_array.iml" filepath="$PROJECT_DIR$/sliyaniye_dvukh_array/sliyaniye_dvukh_array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/while figyr/while figyr.iml" filepath="$PROJECT_DIR$/while figyr/while figyr.iml" />
+    </modules>
+  </component>
+</project>
