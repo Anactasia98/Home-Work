@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 //        1) Найдите и выведите количество положительных и отрицательных чисел в массиве.
@@ -111,22 +112,186 @@ public class Main {
 //        System.out.print("два наименьших элемента в массиве " + arr[0] + " " + arr[1]);
 
 //        10) Проверка на упорядоченность: Определите, отсортирован ли массив по возрастанию.
-        
+//        int[] arr ={45, 220, 251, 995};
+//        boolean isOk = true;
+//        for (int i = 0; i < arr.length-1; i++) {
+//            if (arr[i]>arr[i+1]){
+//               isOk=!isOk;
+//               break;
+//            }
+//        }
+//        System.out.println("Массив упорядочен : " + isOk);
+
 //        11) Проверка на упорядоченность: Определите, отсортирован ли массив по убыванию
-//        12) Частота элементов: Подсчитайте, сколько раз каждое число встречается в массиве.
+//        int[] arr ={544, 500, 290, 250 , 150 ,60 ,36, 22};
+//        boolean isOk = true;
+//        for (int i = 0; i < arr.length-1; i++) {
+//            if (arr[i]<arr[i+1]){
+//                isOk=!isOk;
+//                break;
+//            }
+//        }
+//        System.out.println("Массив упорядочен : " + isOk);
+
+////////////////        12) Частота элементов: Подсчитайте, сколько раз каждое число встречается в массиве.ПОДУМАТЬ!
+//           int []arr={5,4,5,8,9,51,3,5,5};
+
 //        13) Инвертирование знаков: Замените все положительные числа в массиве на отрицательные, и наоборот.
+//        int[] arr ={544, 500, -290, 250 , -150 ,60 ,36, -22};
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i]<0){
+//                arr[i]=arr[i]* (-1);
+//            }else if (arr[i]>0) {
+//                arr[i]=arr[i]* (-1);
+//            }
+//            System.out.print(arr[i] + " ");
+//        }
 //        14) Замена элементов на чётные индексы: Замените все элементы на чётных индексах на их квадрат.
+
+//        int[] arr ={4, 5, 9, 20 , 50 ,60 ,3, 2};
+//        for (int i = 0; i < arr.length; i++) {
+//            if (i%2==0 && i!=0){
+//                arr[i]*=arr[i];
+//            }
+//            System.out.print(arr[i] + " ");
+//        }
 //        15) Сумма элементов на чётных индексах: Найдите сумму элементов, расположенных на чётных индексах массива.
+
+//        int[] arr ={4, 5, 9, 20 , 50 ,60 ,3, 2};
+//       int sum=0;
+//        for (int i = 0; i < arr.length; i++) {
+//            if (i%2==0 && i!=0){
+//                sum+=arr[i];
+//            }
+//        }
+//        System.out.print(sum + " ");
+
 //        16) Замена минимального элемента на 100: Замените минимальный элемент из массива.
+//        int[] arr = {4, 5, 9, 20, 50, 0, 3, 2};
+//        int min = arr[0];
+//        for (int i = 0; i < arr.length; i++) {
+//            if (min > arr[i]) {
+//                min = arr[i];
+//                arr[i] = 100;
+//            }
+//            System.out.print(arr[i] + " ");
+//        }
+
 //        17) Обратный порядок массива: Распечатайте массив наоборот
+//        int[] arr = {4, 5, 9, 20, 50, 0, 3, 2};
+//        for (int i = arr.length-1; i >= 0; i--) {
+//            System.out.print(arr[i] + " ");
+//            }
+
+
 //        18) Замена элементов на индекс: Замените все элементы массива на их индекс.
+//        int[] arr = {4, 5, 9, 20, 50, 0, 3, 2};
+//        for (int i = 0; i < arr.length; i++) {
+//                arr[i] = i;
+//            System.out.print(arr[i] + " ");
+//        }
 //        19) Сумма положительных элементов: Найдите сумму всех положительных элементов массива.
+//        int[] arr = {4, -5, 9, -20, 50, 0, -3, 2};
+//        int sum = 0;
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i]>0) {
+//              sum+=arr[i];
+//            }
+//        }
+//        System.out.print(sum + " ");
+//
 //        20) Поиск последнего отрицательного элемента: Найдите последний отрицательный элемент в массиве и замените его на 0.
+//        int[]arr={-12,-82, 2,0,4,456,8,2,4,7};
+//        for (int i = 0; i < arr.length; i++) {
+//            for (int j = 0; j < arr.length; j++) {
+//                if (arr[i]<arr[j]){
+//                    int tmp=arr[i];
+//                    arr[i]=arr[j];
+//                    arr[j]=tmp;
+//                }
+//            }
+//        }
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[0]<0 ) {
+//                arr[0] = 0;
+//            }
+//            System.out.print(arr[i] + " ");
+//        }
+
 //        21) Удвоение элементов на нечётных индексах: Умножьте все элементы на нечётных индексах на 2.
+//        int[] arr = {4, -5, 9, -20, 50, 0, -3, 2};
+//        for (int i = 0; i < arr.length; i++) {
+//            if (i%2!=0) {
+//              arr[i]=arr[i]*2;
+//            }
+//            System.out.print(arr[i] + " ");
+//        }
+
+
 //        22) Замена максимального элемента на минимальный: Найдите максимальный элемент массива и замените его на минимальный.
+//        int[] arr = {45, 0, 21, 995, 4, 85};
+//        int max = arr[0];
+//        int min = arr[0];
+//        int maxIndex=0;
+//        int minIndex=0;
+//        int tmp = 0;
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i] > max) {
+//                max = arr[i];
+//                maxIndex=i;
+//            }
+//            if (arr[i] < min) {
+//                min = arr[i];
+//                minIndex=i;
+//            }
+//        }
+//        System.out.println(max);
+//        System.out.println(min);
+//          if(max==min){
+//              System.out.print(Arrays.toString(arr));
+//          }else {
+//            tmp = arr[maxIndex];
+//              arr[maxIndex] = arr[minIndex];
+//        System.out.print(Arrays.toString(arr));
+//    }
+
 //        23) Замена элементов, делящихся на 2 и 3: Замените в массива все элементы, которые делятся на 2 и на 3 на число 100.
+//        int[] arr = {45, 0, 21, 995, 6, 85};
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i]%2==0 && arr[i]%3==0 ){
+//                arr[i]=100;
+//            }
+//            System.out.print(arr[i]+ " ");
+//        }
 //        24) Количество элементов, больших среднего арифметического: Подсчитайте количество элементов, которые больше среднего арифметического массива.
+//        int[] arr ={45, 220, 251, 95, 297, 85};
+//          int sum=0;
+//          int arithmetic=0;
+//          int countArifm=0;
+//          for (int i=0; i<arr.length;i++){
+//              sum+=arr[i];
+//          }
+//          arithmetic=sum/arr.length;
+//          System.out.println("Среднее арифметическое " + arithmetic);
+//          for (int i=0; i<arr.length;i++){
+//              if (arr[i]>arithmetic){
+//                 countArifm++;
+//              }
+//          }
+//          System.out.println("Больше среднего арифметического " + countArifm);
+
 //        25) Нахождение индекса максимального элемента: Найдите индекс максимального элемента в массиве.
+//        int[] arr = {45, 0, 21, 995, 4, 85};
+//        int max = arr[0];
+//        int maxIndex=0;
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i] > max) {
+//                max = arr[i];
+//                maxIndex=i;
+//            }
+//        }
+//        System.out.println("максимальный элемент: " + max);
+//        System.out.println("индекс максимального элемента в массиве: " + maxIndex);
 
     }
 }
