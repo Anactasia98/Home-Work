@@ -138,10 +138,65 @@ public static int proizvChsla(int num, int proizv){
     return proizv;
 }
 //Написать метод, который возвращает количество цифр в числе.
+    public static int countNum(int num, int desyatok, int count){
+        if (num<0){
+            num=num*(-1);
+        }
+        if (num<desyatok){
+            return count;
+        }
+        if (num>desyatok){
+            return countNum(num,desyatok*10,count+1);
+        }
+return count;
+    }
 //Написать метод, который возвращает число, полученное в результате зеркального отображения (реверса) заданного числа.
+    public static int turnOverNum (int num){
+        boolean isNegative= num<0;
+       if (isNegative){
+           num=-num;
+       }
+       int reverse=0;
+       while (num!=0){
+           int velu=num%10;
+           reverse=reverse*10+velu;
+           num/=10;
+       }
+       return isNegative? -reverse: reverse;
+    }
 //Написать метод, который возвращает значение числа Фибоначчи с заданным номером.
+public static int fibonachi(int n) {
+    if (n == 0) {
+        return 0;
+    }
+    if (n == 1) {
+        return 1;
+    }
+    int prev1 = 0;
+    int prev2 = 1;
+    int carent = 0;
+    for (int i = 2; i <= n; i++) {
+        carent = prev1 + prev2;
+        prev1 = prev2;
+        prev2 = carent;
+    }
+    return carent;
+}
 //Написать метод, который возвращает длину окружности по заданному радиусу.
+    public static double dlinaOkryjnocti(int r){
+        double pi=3.14;
+         double formila=2*pi*r;
+        return formila;
+    }
 //Написать метод, который проверяет, является ли треугольник прямоугольным по трём сторонам.
+public static boolean teoremaPifagora(int a,int d,int c){
+        c=c*c;
+        int ad=(a*a)+(d*d);
+        if (c==ad){
+            return true;
+        }
+        return false;
+}
 
     public static void main(String[] args) {
         System.out.println( factorial(5));
@@ -165,6 +220,10 @@ public static int proizvChsla(int num, int proizv){
         System.out.println(kratno3i5(10,20 ,0));
         System.out.println(sumChsla(356,0));
         System.out.println(proizvChsla(356,0));
-
+        System.out.println(countNum(-22468648,10,1));
+        System.out.println(turnOverNum(231));
+        System.out.println(fibonachi(10));
+        System.out.println(dlinaOkryjnocti(54));
+        System.out.println(teoremaPifagora(3,4,5));
     }
 }
