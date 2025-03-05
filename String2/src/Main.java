@@ -239,25 +239,56 @@ public class Main {
     }
     //indexOf( char[] a)                         +      metod vozvrasaet index dannoqo slova esli ono est , inace -1
     //contains                                          metod proveryayet soderjit li stroka ukazannuyu stroku
-//    public static boolean contains1(char[] stroka1, char[] slovo1){
-//        for (int i = 0; i <= stroka1.length - slovo1.length; i++) {
-//            int j = 0;
-//            while (j < slovo1.length) {
-//                if (stroka1[i] != slovo1[j])
-//                    break;
-//                if (j == slovo1.length - 1) {
-//                    return true;
-//                }
-//                i++;
-//                j++;
-//            }
-//        }
-//        return false;
-//    }
-//    }
-    //split                                             metod razdelyayet stroku na pod stroku
-    public static String[]split(char[]arr, char delimetr){
+    public static boolean contains1(char[] stroka, char[] slovo){
+        for (int i = 0; i <= stroka.length - slovo.length; i++) {
+            int j = 0;
+            while (j < slovo.length) {
+                if (stroka[i] != slovo[j])
+                    break;
+                if (j == slovo.length - 1) {
+                    return true;
+                }
+                i++;
+                j++;
+            }
+        }
+        return false;
+    }
+    //split           metod razdelyayet stroku na pod stroku
+    public static String[] split(char[] arr, char delimiter) {
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == delimiter) {
+                count++;
+            }
+        }
+        count++;
+        String[] str = new String[count];
+        int index = 0;
 
+        for (int i = 0, strIndex = 0; i < arr.length; i++) {
+            if (arr[i] == delimiter) {
+                str[strIndex] = substring1(arr, index, i);
+                strIndex++;
+                index = i + 1;
+
+                if (strIndex == count - 1) {
+                    str[strIndex] = substring1(arr, index, arr.length);
+                    break;
+                }
+            }
+        }
+
+        return str;
+    }
+
+
+    public static String substring1(char[] arr, int start, int end) {
+        String str = "";
+        for (int i = start; i < end; i++) {
+            str += arr[i];
+        }
+        return str;
     }
 
     public static void main(String[] args) {
@@ -322,7 +353,7 @@ public class Main {
         //indexOf1
         //String text="Hi! My name Nasty.";
         char[] perevodText = toCharArray(text);
-        char[] slovo = {'M','y'};
+        char[] slovo = {'t','y'};
         System.out.println("indexOf1: " + indexOf1(perevodText, slovo, 3));
         //indexOf2
         //String text="Hi! My name Nasty.";
@@ -335,6 +366,13 @@ public class Main {
 //        char[]slovo={'M','y'};
         System.out.println("lastIndexOf: " + lastIndexOf(perevodText,slovo));
         // contains1
-//        System.out.println(contains);
+        System.out.println("contains1: " + contains1(perevodText, slovo));
+        //split
+        String name = "kak dela? Nasty ti tut? Poka Nasty!";
+       String[]arr=split(name.toCharArray(),'a');
+        for (int j = 0; j < arr.length; j++) {
+            System.out.println("split: ");
+            System.out.println(arr[j]);
+        }
     }
 }
