@@ -31,7 +31,12 @@ public static int vvodNum(int num) throws Exception {
 //3. Обращение к элементу массива
 //Создайте массив из 5 элементов. Запросите у пользователя индекс и
 // выведите элемент массива по этому индексу. Обработайте ситуацию, когда индекс выходит за границы массива.
-//
+public static int ObrashcheniyeMassivu (int[]arr ,int index) throws Exception {
+    if (index>= arr.length){
+        throw new Exception("Вы ввели большой индекс. Введите от 0 до 4");
+    }
+    return arr[index];
+}
 //4. Нахождение минимального числа
 //Запросите у пользователя несколько чисел (например, 5). Если одно из
 // введённых значений не является числом, выбросьте исключение и выведите сообщение об ошибке.
@@ -76,17 +81,29 @@ public static int vvodNum(int num) throws Exception {
 //2. Неверный формат числа
 //Запросите у пользователя ввод числа. Если пользователь ввёл строку,
 // не являющуюся числом, выбросьте исключение и выведите сообщение об ошибке.
-        System.out.print("Введите число: ");
-        try {
-        int num= scanner.nextInt();
-        System.out.println(vvodNum(num));
-        }catch (Exception ex){
-            System.out.println(ex.getMessage());
-        }
+//        System.out.print("Введите число: ");
+//        try {
+//        int num= scanner.nextInt();
+//        System.out.println(vvodNum(num));
+//        }catch (Exception ex){
+//            System.out.println(ex.getMessage());
+//        }
 //3. Обращение к элементу массива
 //Создайте массив из 5 элементов. Запросите у пользователя индекс и
 // выведите элемент массива по этому индексу. Обработайте ситуацию, когда индекс выходит за границы массива.
-//
+        int [] arr= new int[5];
+        System.out.println("Введите  элементы");
+        try {
+        for (int i = 0; i < 5; i++) {
+            arr[i] = scanner.nextInt();
+        }
+            System.out.println("Введите индекс");
+        int index=scanner.nextInt();
+            System.out.println(ObrashcheniyeMassivu(arr,index));
+        }catch (Exception ex){
+                System.out.println(ex.getMessage());
+
+        }
 //4. Нахождение минимального числа
 //Запросите у пользователя несколько чисел (например, 5). Если одно из
 // введённых значений не является числом, выбросьте исключение и выведите сообщение об ошибке.
