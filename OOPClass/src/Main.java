@@ -20,6 +20,22 @@ public class Main {
         //Задание 6
         Point point= new Point(5,-4);
         point.move(7,-9);
+        //Задание 7
+        Person person= new Person("Nasty", "Daniliva");
+        person.getFullName();
+        //Задание 8
+        Temperature temperature= new Temperature(37.2);
+        temperature.toFahrenheit();
+        temperature.toKelvin();
+        //Задание 9
+        Counter counter=new Counter();
+        System.out.println(counter.decrement());
+        System.out.println(counter.increment());
+        System.out.println(counter.getCount());
+        //Задание 10
+        Time time=new Time(12,48);
+        System.out.println(time.addMinutes(3254));
+
     }
 }
 //Задание 1
@@ -132,16 +148,35 @@ class  Point{
 //Поля firstName и lastName (оба типа String).
 //Конструктор для установки имени и фамилии.
 //Метод getFullName(), который возвращает полное имя человека.
-//
-//
+class Person{
+    String firstName;
+    String lastName;
+    public Person( String firstName,String lastName){
+        this.firstName=firstName;
+        this.lastName=lastName;
+    }
+    public void  getFullName(){
+        System.out.println(firstName + " " + lastName);
+    }
+}
 //Задание 8
 //Создайте класс Temperature, который имеет:
 //
 //Поле celsius (тип double).
 //Конструктор для установки температуры в градусах Цельсия.
 //Методы toFahrenheit() и toKelvin(), которые возвращают температуру в Фаренгейтах и Кельвинах соответственно.
-//
-//
+class Temperature{
+    double celsius;
+    public Temperature(double celsius){
+        this.celsius=celsius;
+    }
+    public void toFahrenheit(){
+        System.out.println("F=" + celsius*1.8+32);
+    }
+    public void toKelvin(){
+        System.out.println("K=" + celsius+273.15);
+    }
+}
 //Задание 9
 //Создайте класс Counter, который имеет:
 //
@@ -149,11 +184,49 @@ class  Point{
 //Метод increment(), который увеличивает значение поля на 1.
 //Метод decrement(), который уменьшает значение поля на 1.
 //Метод getCount(), который возвращает текущее значение счетчика.
-//
-//
+class Counter{
+    int count=0;
+//    public Counter(int count){
+//        this.count=count;
+//    }
+    public int increment(){
+        System.out.print("increment: ");
+        return count+1;
+    }
+    public int decrement(){
+        System.out.print("decrement: ");
+        return count-1;
+    }
+    public int getCount(){
+        System.out.print("getCount: ");
+        return count;
+    }
+}
 //Задание 10
 //Создайте класс Time, который имеет:
 //
 //Поля hours и minutes (оба типа int).
 //Конструктор для установки времени.
 //Метод addMinutes(int minutes), который добавляет заданное количество минут к времени и корректно обновляет часы.
+class  Time{
+    int hours;
+    int minutes;
+    public Time(int hours,int minutes){
+        this.hours=hours;
+        this.minutes=minutes;
+    }
+    public int addMinutes(int minutesAdd){
+      int countHours=0;
+        int newMinutes=minutes+minutesAdd;
+        if (newMinutes>59){
+            countHours=newMinutes/60;
+            hours=hours+countHours;
+            minutes= newMinutes-60*countHours;
+            if (hours>23){
+                hours=hours/24;
+            }
+        }
+        System.out.print(hours + ":");
+        return minutes;
+    }
+}
