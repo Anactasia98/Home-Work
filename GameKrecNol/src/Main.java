@@ -108,13 +108,15 @@ public class Main {
         Scanner scanner=new Scanner(System.in);
         System.out.println();
         System.out.println("Введите номер квадрата");
-        for (int i = 0; i < arr.length; i++) {
-            char num = scanner.next().charAt(0);
-            if (arr[i]==num){
-                arr[i]='X';
-            }
-            pechetayetArr(arr);
-        }
+        char num = scanner.next().charAt(0);
+
+//        for (int i = 0; i < arr.length; i++) {
+//            char num = scanner.next().charAt(0);
+//            if (arr[i]==num){
+//                arr[i]='X';
+//            }
+//            pechetayetArr(arr);
+//        }
 
 
 
