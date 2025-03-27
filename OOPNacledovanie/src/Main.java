@@ -169,6 +169,9 @@ class WashingMachine extends Appliance{
     public WashingMachine(String brand) {
         super(brand);
     }
+    {
+        super.setBrand("*");
+    }
 }
 //8. Создание цепочки наследования
 //Создайте класс LivingBeing с атрибутом type (например, "Living").
