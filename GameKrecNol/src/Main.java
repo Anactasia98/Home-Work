@@ -2,18 +2,89 @@ import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
-    public static void pechetayetArr(char[] arr){
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i]=='4'||arr[i]=='7'){
-                System.out.print("\n-----");
+    public static Scanner scanner=new Scanner(System.in);
+    public static   char[] board= {' ',' ',' ',
+                                  ' ',' ',' ',
+                                  ' ',' ',' '};
+    static void pechetayetArr(){ //метод печатает доску
+        for (int i = 0; i < board.length; i++) {
+            if (i==3 || i==6){
+                System.out.print("\n------");
             }
-            if (arr[i]=='4' || arr[i]=='7' ) {
+            if (i==3 || i==6 ) {
                 System.out.println();
             }
-            System.out.print(arr[i] + "|");
+            System.out.print(board[i] + "|");
+        }
+        System.out.println();
+    }
+
+    public static void peopleVscomputer() { //игра человек против компьютера
+
+    }
+
+
+    public static void peopleVspeople(){ // игра человек против человека
+        char currentPlayer = 'X';
+        while (true) {
+            pechetayetArr();
+            System.out.println("Ход игрока " + currentPlayer + " . Выберите позицию от (1-9) : ");
+            int position = scanner.nextInt() - 1;
+            if (position < 0 || position >= 9) {
+                System.out.println("Вы сделали не верный ход попробуйте снова.");
+                continue;
+            } else if (position < 0 || position >= 9 || board[position] != ' ') {
+                System.out.println("Данная позиция занята , попробуйте снова.");
+                continue;
+            }
+
+            board[position] = currentPlayer;
+
+
+            if (victory(currentPlayer)){
+                pechetayetArr();
+                System.out.println("Игрок " + currentPlayer +" выиграл!!!!!");
+                break;
+            }
+
+            if (isBoardFull()){
+                pechetayetArr();
+                System.out.println("Ничья!");
+                break;
+            }
+            if (currentPlayer == 'X'){
+                currentPlayer = 'O';
+            }else{
+                currentPlayer = 'X';
+            }
+
+
         }
     }
+
+
+    public static boolean victory(char play){ //проверка на победителя
+        return ((board[0]==play && board[1]==play && board[2]==play) ||
+                (board[3]==play && board[4]==play && board[5]==play) ||
+                (board[6]==play && board[7]==play && board[8]==play) ||
+                (board[0]==play && board[3]==play && board[6]==play) ||
+                (board[1]==play && board[4]==play && board[7]==play) ||
+                (board[2]==play && board[5]==play && board[8]==play) ||
+                (board[0]==play && board[4]==play && board[8]==play) ||
+                (board[6]==play && board[4]==play && board[2]==play));
+    }
+
+    static boolean isBoardFull(){ //проверяет остались ли пустые клетки
+        for (int i = 0; i < board.length; i++) {
+            if (board[i] == ' ') return false;
+        }
+
+        return true;
+    }
+
+
     public static void main(String[] args) {
 //Задание: Реализация игры "Крестики-нолики"
 //
@@ -92,10 +163,10 @@ public class Main {
 //        char[] arr= {'1','|','2','|','3',
 //                     '4','|','5','|','6',
 //                     '7','|','8','|','9'};
-        char[] arr= {'1','2','3',
-                     '4','5','6',
-                     '7','8','9'};
-      pechetayetArr(arr);
+//        char[] arr= {'1','2','3',
+//                     '4','5','6',
+//                     '7','8','9'};
+      pechetayetArr(); //вызываем метод который печатает доску
 //        for (int i = 0; i < arr.length; i++) {
 //            if (arr[i]=='4'||arr[i]=='7'){
 //                System.out.print("\n-----");
@@ -105,10 +176,25 @@ public class Main {
 //            }
 //            System.out.print(arr[i] + "|");
 //        }
-        Scanner scanner=new Scanner(System.in);
-        System.out.println();
-        System.out.println("Введите номер квадрата");
-        char num = scanner.next().charAt(0);
+//        Scanner scanner=new Scanner(System.in);
+
+        System.out.println("Выберите режим игры: " +
+                "\n1-человек против человека " + "\n2-человек против компьютера");
+        int rejim=scanner.nextInt();
+        if (rejim==1){
+            System.out.println("человек против человека");
+            peopleVspeople();
+        }else if(rejim==2){
+            System.out.println("человек против компьютера");
+            peopleVscomputer();
+        }else {
+            System.out.println("Выбран не верный режим");
+        }
+
+
+//        System.out.println();
+//        System.out.println("Введите номер квадрата");
+//        char num = scanner.next().charAt(0);
 
 //        for (int i = 0; i < arr.length; i++) {
 //            char num = scanner.next().charAt(0);
