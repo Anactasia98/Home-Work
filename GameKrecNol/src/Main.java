@@ -21,8 +21,104 @@ public class Main {
         System.out.println();
     }
 
-    public static void peopleVscomputer() { //игра человек против компьютера
+    public static boolean curentPlayerTurn(char player){ //текущий ход игрока
+        System.out.println("Ваш ход  . Выберите позицию от (1-9) : ");
+        int position = scanner.nextInt() - 1;
 
+        if (position<0 || position >= 9 || board[position] != ' '){
+            System.out.println("Вы сделали не верный ход попробуйте снова.");
+            return curentPlayerTurn(player);
+        }
+
+        board[position] = player;
+
+
+        if (victory(player)){
+            pechetayetArr();
+            System.out.println("Вы  выиграл!!!!!");
+            return true;
+        }
+
+        return false;
+    }
+
+
+    public static boolean computerTurn(char computer){ //ход компьютера
+        int bestMove = findBestMove(computer);
+
+
+        board[bestMove] = computer;
+        System.out.println("Компьютер сделал ход на позицию . " + (bestMove+1));
+
+
+        if (victory(computer)){
+            pechetayetArr();
+            System.out.println("Компьютер  выиграл!!!!!");
+            return true;
+        }
+
+        return false;
+    }
+
+
+
+    public static int findBestMove(char computer){//найдет лучший ход
+        for (int i = 0; i < board.length; i++) {
+            if (board[i] == ' '){
+                board[i] = computer;
+                if (victory(computer)){
+                    board[i] = ' ';
+                    return i;
+                }
+                board[i] = ' ';
+            }
+        }
+
+
+        for (int i = 0; i < board.length; i++) {
+            if (board[i] == ' '){
+                board[i] = 'X';
+                if (victory('X')){
+                    board[i] = ' ';
+                    return i;
+                }
+                board[i] = ' ';
+            }
+        }
+
+
+        int[] steps = {4,0,2,3,1,5,6,7,8}; //порядок хода компьютера
+
+        for (int i = 0; i < steps.length; i++) {
+            if (board[steps[i]]==' ') return steps[i];
+        }
+
+        return -1;
+    }
+
+    public static void peopleVscomputer() { //игра человек против компьютера
+        char player = 'X';
+        char computer = '0';
+
+
+        while (true){
+            pechetayetArr();
+
+            if (isBoardFull()){
+                System.out.println("Ничья!");
+                break;
+            }
+
+
+            if (curentPlayerTurn(player))return;
+            if (isBoardFull()){
+                pechetayetArr();
+                System.out.println("Ничья!");
+                break;
+            }
+
+            if (computerTurn(computer))return;
+        }
     }
 
 
