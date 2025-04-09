@@ -10,7 +10,7 @@
 // +  4 get(int index)
 // +  5 clear()
 // +  6 remove(T value)
-// -  7 remove(int index)
+// +  7 remove(int index)
 
 class MyList {
     String[] arr;
