@@ -8,6 +8,16 @@ public class User {
     private String userName;
     private String password;
 
+    public User(String name,
+                String secondName,
+                String userName,
+                String password) {
+        this.name = name;
+        this.secondName = secondName;
+        this.userName = userName;
+        this.password = password;
+    }
+
     public int getId() {
         return id;
     }
