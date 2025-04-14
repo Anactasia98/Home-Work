@@ -2,6 +2,7 @@ package org.example.services;
 
 import org.example.model.Contact;
 import org.example.model.User;
+import org.example.repositories.IdGeneratorRepository;
 import org.example.repositories.UserRepository;
 
 import java.util.List;
@@ -11,7 +12,10 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    private  final IdGeneratorRepository idGeneratorRepository;
+
     public UserService() {
+        this.idGeneratorRepository =new IdGeneratorRepository();
         this.userRepository = new UserRepository();
     }
 
@@ -35,12 +39,14 @@ public class UserService {
     public void register(String name,
                          String secondName,
                          String username,
-                         String password) {
+                         String password
+                         ) {
         User user = new User(
                 name,
                 secondName,
                 username,
-                password
+                password,
+                idGeneratorRepository.getNextUserId()
         );
         userRepository.create(user);
     }

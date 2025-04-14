@@ -7,6 +7,18 @@ public class Contact {
     private int phoneNumber;
     private int age;
 
+    public Contact(int id,
+                   String name,
+                   String secondName,
+                   int phoneNumber,
+                   int age) {
+        this.id = id;
+        this.name = name;
+        this.secondName = secondName;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
+    }
+
     public int getId() {
         return id;
     }
@@ -45,5 +57,25 @@ public class Contact {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return id + "," + name + "," + secondName + "," + phoneNumber + "," + age;
+    }
+
+    public static Contact fromString(String line) {
+        String[] parts = line.split(",");
+        return new Contact(
+                Integer.parseInt(parts[0]),
+                parts[1],
+                parts[2],
+                Integer.parseInt(parts[3]),
+                Integer.parseInt(parts[4])
+        );
+    }
+
+    public String getFormattedString() {
+        return "(№: " + id + ") Имя: " + name + " Фамилия: " + secondName + " Возраст: " + age + " Номер телефона: " + phoneNumber;
     }
 }

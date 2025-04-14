@@ -4,15 +4,18 @@ import org.example.model.User;
 
 import java.util.Optional;
 
-public class LoginService {
+public class AuthorizationService {
 
-    private static User currentUser;//текущий пользователь
+    public static User currentUser;//текущий пользователь
     private final UserService userService;
 
-    public LoginService() {
+    public AuthorizationService() {
         this.userService = new UserService();
     }
 
+    public static boolean isAuthorized() {
+        return currentUser != null;
+    }
 
     public void login(String username, String password) {
         Optional<User> userOptional = userService.findByUsername(username);
@@ -27,4 +30,9 @@ public class LoginService {
     public void logOut() {
         currentUser = null;
     }
+
+    public static String getFilePathForCurrentUser() {
+        return "main/resources/contacts/user_id_" + currentUser.getId() + ".txt";
+    }
+
 }

@@ -1,16 +1,24 @@
 package org.example.services;
 
 import org.example.model.Contact;
+import org.example.model.IdGenerator;
+import org.example.model.User;
 import org.example.repositories.ContactRepository;
+import org.example.repositories.IdGeneratorRepository;
+import org.example.utils.LogMessage;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class ContactService {
+    private final IdGeneratorRepository idGeneratorRepository;
     private final ContactRepository contactRepository;
+    private final Logger logger;
 
     public ContactService() {
+        this.logger = new Logger();
+        this.idGeneratorRepository = new IdGeneratorRepository();
         this.contactRepository = new ContactRepository();
     }
 
@@ -43,5 +51,26 @@ public class ContactService {
         return result;
     }
 
+    public void addNew(
+            String name,
+            String secondName,
+            int age,
+            int phone
+    ) {
+        Contact contact = new Contact(
+                idGeneratorRepository.getNextContactId(),
+                name,
+                secondName,
+                phone,
+                age
+        );
+        contactRepository.create(contact);
 
+        logger.create(String.format(LogMessage.CREATE_CONTACT_MESSAGE, contact.getId(), AuthorizationService.currentUser.getId()));
+    }
+
+
+    public List<Contact> getAll() {
+        return contactRepository.getAll();
+    }
 }

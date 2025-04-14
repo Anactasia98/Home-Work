@@ -11,11 +11,13 @@ public class User {
     public User(String name,
                 String secondName,
                 String userName,
-                String password) {
+                String password,
+                int id) {
         this.name = name;
         this.secondName = secondName;
         this.userName = userName;
         this.password = password;
+        this.id = id;
     }
 
     public int getId() {
@@ -57,4 +59,22 @@ public class User {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    @Override
+    public String toString() {
+        return id + "," + name + "," + secondName + "," + userName + "," + password;
+    }
+
+    public static User fromString(String line) {
+        String[] parts = line.split(",");
+        return new User(
+                parts[1],
+                parts[2],
+                parts[3],
+                parts[4],
+                Integer.parseInt(parts[0])
+        );
+    }
 }
+
+
