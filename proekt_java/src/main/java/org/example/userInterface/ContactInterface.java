@@ -62,6 +62,22 @@ public class ContactInterface {
         //считать да или нет
         //если да то контакт серви.ремуф(ид)
         //если нет то ретёрн
+        System.out.println(ConsoleMessage.COMMAND_INTERFACE_REMOVE_MESSAGE);
+        int id = scanner.nextInt();
+        System.out.println(ConsoleMessage.COMMAND_INTERFACE_REMOVE_CONFIRMATION_MESSAGE);
+        int confirmation=scanner.nextInt();
+        public void  removeConfirmation(){
+            switch (confirmation){
+                case "1":
+                    ContactService.remove(id);
+                    break;
+                case "2":
+                    return;
+                default:
+                    break;
+
+            }
+        }
     }
 
     private void addNew() {

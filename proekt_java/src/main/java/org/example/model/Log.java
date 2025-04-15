@@ -60,4 +60,8 @@ public class Log {
                 parts[2]
         );
     }
+
+    public String getFormattedString() {
+        return "(№: " + id + ") Сообщение: " + message  + " Дата: " + date;
+    }
 }

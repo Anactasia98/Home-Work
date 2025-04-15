@@ -64,4 +64,23 @@ public class ConsoleMessage {
     public static final String PASSWORDS_NOT_EQUALS_MESSAGE = "Пароли не совпадают";
     public static final  String SIGN_IN_AGE_MESSAGE= "Enter age: ";
     public static final  String SIGN_IN_PHONE_NUMBER_MESSAGE= "Enter phone numder: ";
+    public static final  String COMMAND_INTERFACE_REMOVE_MESSAGE = "Введите id пользователя для удаления";
+
+    public static final  String COMMAND_INTERFACE_REMOVE_CONFIRMATION_MESSAGE="""
+               Вы уверены что хотите удалить 
+                           контакт?
+                 
+              -----------------------------------
+             |                                  |
+             |        1   -   Да                |
+             |                                  |
+             |        2   -   Нет               |
+             |                                  |
+              -----------------------------------
+            """;
+
+    public static final String LOGIN_MESSAGE = "Пользователь id:%s авторизовался в системе";
+    public static final String LOGOUT_MESSAGE = "Пользователь id:%s вышел из системы";
+    public static final String CREATE_CONTACT_MESSAGE = "Добавлен новый контакт id:%s для пользователя id:%s";
+
 }

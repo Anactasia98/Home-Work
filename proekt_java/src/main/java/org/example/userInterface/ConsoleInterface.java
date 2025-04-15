@@ -80,12 +80,12 @@ public class ConsoleInterface {
         }
     }
 
+
     private void printLog() {
             List<Log> all = logger.getAll();
-            for (Contact contact : all) {
-                System.out.println(contact.getFormattedString());
+            for (Log log : all) {
+                System.out.println(log.getFormattedString());
             }
-
     }
 
     private void logIn() {
@@ -122,6 +122,7 @@ public class ConsoleInterface {
     }
 
     private void logOut() {
+        System.out.println(ConsoleMessage.LOGOUT_MESSAGE);
         authorizationService.logOut();
     }
 

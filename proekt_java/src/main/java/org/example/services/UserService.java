@@ -4,6 +4,7 @@ import org.example.model.Contact;
 import org.example.model.User;
 import org.example.repositories.IdGeneratorRepository;
 import org.example.repositories.UserRepository;
+import org.example.utils.ConsoleMessage;
 
 import java.util.List;
 import java.util.Optional;
@@ -48,6 +49,7 @@ public class UserService {
                 password,
                 idGeneratorRepository.getNextUserId()
         );
+        System.out.println(ConsoleMessage.LOGIN_MESSAGE);
         userRepository.create(user);
     }
 }
