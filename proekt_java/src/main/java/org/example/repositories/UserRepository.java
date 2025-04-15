@@ -49,8 +49,8 @@ public class UserRepository {
         List<User> users = getAll();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
             for (User user : users) {
-                if (user.getId() ==  updatedUser.getId()) {
-                    writer.write( updatedUser.toString());
+                if (user.getId() == updatedUser.getId()) {
+                    writer.write(updatedUser.toString());
                 } else {
                     writer.write(user.toString());
                 }

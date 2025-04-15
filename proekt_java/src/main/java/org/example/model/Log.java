@@ -62,6 +62,6 @@ public class Log {
     }
 
     public String getFormattedString() {
-        return "(№: " + id + ") Сообщение: " + message  + " Дата: " + date;
+        return "(№: " + id + ") Сообщение: " + message + " Дата: " + date;
     }
 }

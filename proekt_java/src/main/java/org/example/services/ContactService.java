@@ -51,12 +51,10 @@ public class ContactService {
         return result;
     }
 
-    public void addNew(
-            String name,
-            String secondName,
-            int age,
-            int phone
-    ) {
+    public void addNew(String name,
+                       String secondName,
+                       int age,
+                       int phone) {
         Contact contact = new Contact(
                 idGeneratorRepository.getNextContactId(),
                 name,
@@ -72,5 +70,24 @@ public class ContactService {
 
     public List<Contact> getAll() {
         return contactRepository.getAll();
+    }
+
+    public void remove(int id) {
+        contactRepository.deleteContactById(id);
+    }
+
+    public void update(int id,
+                       String name,
+                       String secondName,
+                       int age,
+                       int phone) {
+        Contact contact = new Contact(
+                id,
+                name,
+                secondName,
+                phone,
+                age
+        );
+        contactRepository.updateContact(contact);
     }
 }

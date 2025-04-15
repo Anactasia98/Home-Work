@@ -52,31 +52,28 @@ public class ContactInterface {
     }
 
     private void update() {
-
+        System.out.println(ConsoleMessage.COMMAND_INTERFACE_UPDATE_ID_MESSAGE);
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print(ConsoleMessage.SIGN_UP_NAME_MESSAGE);
+        String name = scanner.nextLine();
+        System.out.print(ConsoleMessage.SIGN_UP_SECOND_NAME_MESSAGE);
+        String secondName = scanner.nextLine();
+        System.out.print(ConsoleMessage.SIGN_IN_AGE_MESSAGE);
+        int age = scanner.nextInt();
+        System.out.print(ConsoleMessage.SIGN_IN_PHONE_NUMBER_MESSAGE);
+        int phoneNumber = scanner.nextInt();
+        contactService.update(id, name, secondName, age, phoneNumber);
     }
 
     private void remove() {
-        //вывести сообщение введите ид пользователя для удаления
-        //считать ид
-        //вывести сообщение подтверждение удаления да /нет
-        //считать да или нет
-        //если да то контакт серви.ремуф(ид)
-        //если нет то ретёрн
         System.out.println(ConsoleMessage.COMMAND_INTERFACE_REMOVE_MESSAGE);
         int id = scanner.nextInt();
         System.out.println(ConsoleMessage.COMMAND_INTERFACE_REMOVE_CONFIRMATION_MESSAGE);
-        int confirmation=scanner.nextInt();
-        public void  removeConfirmation(){
-            switch (confirmation){
-                case "1":
-                    ContactService.remove(id);
-                    break;
-                case "2":
-                    return;
-                default:
-                    break;
+        int confirmation = scanner.nextInt();
 
-            }
+        if (confirmation == 1) {
+            contactService.remove(id);
         }
     }
 
@@ -91,6 +88,5 @@ public class ContactInterface {
         int phoneNumber = scanner.nextInt();
 
         contactService.addNew(name, secondName, age, phoneNumber);
-
     }
 }

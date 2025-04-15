@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactRepository {
-
     public ContactRepository() {
         var dir = Path.of("main/resources/contacts");
         if (!Files.isDirectory(dir)) {

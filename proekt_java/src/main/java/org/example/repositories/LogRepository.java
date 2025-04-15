@@ -9,6 +9,7 @@ import java.util.List;
 
 public class LogRepository {
     private static final String filePath = "main/resources/log.txt";
+
     public LogRepository() {
         File file = new File(filePath);
         if (!file.exists()) {
@@ -30,11 +31,11 @@ public class LogRepository {
     }
 
     public List<Log> getAll() {
-        List<Log> logs= new ArrayList<>();
+        List<Log> logs = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-               logs.add(Log.fromString(line));
+                logs.add(Log.fromString(line));
             }
         } catch (IOException e) {
             e.printStackTrace();

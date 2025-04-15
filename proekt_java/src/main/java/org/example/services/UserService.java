@@ -13,10 +13,10 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    private  final IdGeneratorRepository idGeneratorRepository;
+    private final IdGeneratorRepository idGeneratorRepository;
 
     public UserService() {
-        this.idGeneratorRepository =new IdGeneratorRepository();
+        this.idGeneratorRepository = new IdGeneratorRepository();
         this.userRepository = new UserRepository();
     }
 
@@ -40,8 +40,7 @@ public class UserService {
     public void register(String name,
                          String secondName,
                          String username,
-                         String password
-                         ) {
+                         String password) {
         User user = new User(
                 name,
                 secondName,
@@ -49,7 +48,6 @@ public class UserService {
                 password,
                 idGeneratorRepository.getNextUserId()
         );
-        System.out.println(ConsoleMessage.LOGIN_MESSAGE);
         userRepository.create(user);
     }
 }

@@ -8,17 +8,17 @@ import org.example.repositories.LogRepository;
 import java.util.List;
 
 public class Logger {
-    private  final LogRepository logRepository;
+    private final LogRepository logRepository;
 
-    private  final IdGeneratorRepository idGeneratorRepository;
+    private final IdGeneratorRepository idGeneratorRepository;
 
-    public Logger( ) {
+    public Logger() {
         this.idGeneratorRepository = new IdGeneratorRepository();
         this.logRepository = new LogRepository();
     }
 
-    public void  create(String message){
-        Log log= new Log(idGeneratorRepository.getNextLogId(),message);
+    public void create(String message) {
+        Log log = new Log(idGeneratorRepository.getNextLogId(), message);
         logRepository.create(log);
     }
 

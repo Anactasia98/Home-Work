@@ -59,13 +59,7 @@ public class ConsoleInterface {
                         new ContactInterface(scanner).start();
                         break;
                     case "2":
-//                        new SearchInterface(scanner).start();
-                        break;
-                    case "3":
-//                        new FilterInterface(scanner).start();
-                        break;
-                    case "4":
-//                        new SortingInterface(scanner).start();
+                        new SearchInterface(scanner).start();
                         break;
                     case "5":
                         printLog();
@@ -82,10 +76,10 @@ public class ConsoleInterface {
 
 
     private void printLog() {
-            List<Log> all = logger.getAll();
-            for (Log log : all) {
-                System.out.println(log.getFormattedString());
-            }
+        List<Log> all = logger.getAll();
+        for (Log log : all) {
+            System.out.println(log.getFormattedString());
+        }
     }
 
     private void logIn() {
@@ -122,7 +116,9 @@ public class ConsoleInterface {
     }
 
     private void logOut() {
-        System.out.println(ConsoleMessage.LOGOUT_MESSAGE);
+        if (AuthorizationService.isAuthorized()) {
+            System.out.printf(LogMessage.LOGOUT_MESSAGE, AuthorizationService.currentUser.getId());
+        }
         authorizationService.logOut();
     }
 
