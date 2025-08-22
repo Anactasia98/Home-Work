@@ -1,4 +1,8 @@
 package org.example;
+
+import java.util.Arrays;
+import java.util.List;
+
 interface  Exercise1{
     int sum(int a, int b);
 }
@@ -62,6 +66,7 @@ interface  Exercise20{
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
     public static void main(String[] args) {
 //1) Напишите лямбда-выражение, которое принимает два целых числа и возвращает их сумму.
         Exercise1 exercise1=(a,b)->a+b;
@@ -104,7 +109,14 @@ public class Main {
         Exercise12 exercise12=(a -> a>0);
         System.out.println(exercise12.num(5));
 //13) Напишите лямбда-выражение для фильтрации всех чётных чисел из списка.
-        System.out.println("Exercise13 в разраотке");
+        List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+        // Оставляем только чётные
+        List<Integer> evens = numbers.stream()
+                .filter(n -> n % 2 == 0)  // лямбда: условие,промежуточная операция потоко принимает  ламбда выражение
+                .toList();                // собрать в новый список
+
+        System.out.println("Чётные: " + evens);
+
 //14) Напишите лямбда-выражение, которое находит наибольший элемент в списке чисел.
 //15) Напишите лямбда-выражение, которое сортирует список строк по длине.
 //16) Создайте лямбда-выражение, которое возвращает строку без пробелов в начале и в конце.

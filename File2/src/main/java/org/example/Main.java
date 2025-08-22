@@ -28,9 +28,24 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+    static Person readPerson(Scanner scanner) {   // <— без подчёркивания
+    System.out.print("Имя: ");
+    String name = scanner.nextLine().trim();
+
+    System.out.print("surname: ");
+    String surname = scanner.nextLine().trim();
+
+    System.out.print("Возраст (целое число): ");
+    int age = Integer.parseInt(scanner.nextLine().trim());
+
+    System.out.print("Email: ");
+    String email = scanner.nextLine().trim();
+
+    return new Person(name, surname, age, email);
+}
     public static List<Person> generationPeople() {
         List<Person> people = new ArrayList<>();
-        people.add(new Person("Hasty","Danilova",27,"www999@gmail.com"));
+        people.add(new Person("Hasty", "Danilova", 27, "www999@gmail.com"));
         return people;
     }
 
@@ -45,7 +60,7 @@ public class Main {
                 System.out.println("Выход из программы");
                 break;
 
-            }else if (command.startsWith("create-file")) {
+            } else if (command.startsWith("create-file")) {
                 System.out.println("Введите путь файла");
                 String pathFile = scanner.nextLine();
                 File file = new File(pathFile);
@@ -58,7 +73,9 @@ public class Main {
             } // добавление
             else if (command.startsWith("Add")) {
 
-
+                        Person p = readPerson(scanner);
+                        System.out.println("Создан: " + p);
+//
             } //Удаление
             else if (command.startsWith("Remove")) {
 
