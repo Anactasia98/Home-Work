@@ -18,6 +18,8 @@ package org.example;
 //4 - Print All
 //5 - Exit
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -32,7 +34,7 @@ public class Main {
         return people;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         do {
             Scanner scanner = new Scanner(System.in);
@@ -42,6 +44,16 @@ public class Main {
             if (command.equals("Exit")) {
                 System.out.println("Выход из программы");
                 break;
+
+            }else if (command.startsWith("create-file")) {
+                System.out.println("Введите путь файла");
+                String pathFile = scanner.nextLine();
+                File file = new File(pathFile);
+                if (file.createNewFile()) {
+                    System.out.println("File bil sozdan");
+                } else {
+                    System.out.println("File ne bil sozdan");
+                }
 
             } // добавление
             else if (command.startsWith("Add")) {
