@@ -43,11 +43,7 @@ public class Main {
 
     return new Person(name, surname, age, email);
 }
-    public static List<Person> generationPeople() {
-        List<Person> people = new ArrayList<>();
-        people.add(new Person("Hasty", "Danilova", 27, "www999@gmail.com"));
-        return people;
-    }
+
 
     public static void main(String[] args) throws IOException {
 
@@ -72,9 +68,9 @@ public class Main {
 
             } // добавление
             else if (command.startsWith("Add")) {
-
                         Person p = readPerson(scanner);
                         System.out.println("Создан: " + p);
+                        
 //
             } //Удаление
             else if (command.startsWith("Remove")) {
