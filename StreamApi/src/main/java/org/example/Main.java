@@ -15,7 +15,7 @@ public class Main {
 
         for (int i = 1; i <= totalMovie; i++) {
             list.add("Фильм # " + i);
-            System.out.println("Фильм # " + i);
+//            System.out.println("Фильм # " + i);
         }
 
 
@@ -28,13 +28,21 @@ public class Main {
         ///////////////////////////////////////
 //              logic
         List<String> result = list;
+        if (pageNum<0){
+            System.out.println("Номер страницы не может быть отрицательным");
+            return;
+        }else if (pageNum*pageSize>pageSize) {
+            System.out.println("Такого номера страницы нет");
+            return;
+        }
+        list.stream().skip((pageNum-1)*pageSize).limit(pageSize).forEach(s -> System.out.println(s));
         ///////////////////////////////////////
 
 
         //Result : Dannaya stranica ne suwestvuet
         //Result : 66->77
-        for (String value: result) {
-            System.out.println(value);
-        }
+//        for (String value: result) {
+//            System.out.println(value);
+//        }
     }
 }
