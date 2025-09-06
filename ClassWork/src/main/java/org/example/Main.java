@@ -3,8 +3,11 @@ package org.example;
 import org.example.zadanie6.BankAccount;
 
 import java.io.*;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -248,7 +251,12 @@ public class Main {
 //
 
 //        List<Integer> list = List.of(14, 54, 54, 34, 50, 57, 0, 1, 2, 5, 556);
-//        List<Integer> result = list.stream().filter(s -> s % 2 == 0).
+//        List<Integer> result = list.stream().filter(s -> s % 2 == 0)
+//                .sorted(Comparator.reverseOrder())
+//                .collect(Collectors.toList());
+//        System.out.println(list);
+//        System.out.println(result);
+
 //Задание 9: Поиск самого длинного слова
 //Дан список строк List<String>. Используйте Stream API, чтобы:
 //
@@ -258,6 +266,11 @@ public class Main {
 //Пример входных данных: ["кот", "слон", "крокодил", "тигр", "леопард"]
 //Выход: "крокодил"
 //
+        List<String> list=List.of ("кот", "слон", "крокодил", "тигр", "леопард");
+        Optional<String> result=list.stream().max(Comparator.comparingInt(String::length));
+        System.out.println(list);
+        System.out.println(result);
+
 //10. Задание на IO File
 //Задание 10: Чтение и обработка данных из файла
 //Напишите программу, которая:
