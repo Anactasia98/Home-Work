@@ -5,8 +5,23 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+    public static int sum(int a, int b){
+        return a+b;
+    }
+    public static int subtraction(int a, int b){
+        return a-b;
+    }
+    public static int multiplication(int a, int b){
+        return a*b;
+    }
+    public static int division(int a, int b){
+        return a/b;
+    }
+
     public static void main(String[] args) {
+
         Scanner scanner= new Scanner(System.in);
+
 //Задания для самостоятельной работы (Java, средний уровень)
 //1-2. Задания на if
 //Задание 1: Классификация углов
@@ -21,21 +36,21 @@ public class Main {
 //Выведите соответствующее сообщение.
 //Если введенное число выходит за пределы 0-360, программа должна выводить сообщение об ошибке.
 //
-        System.out.print("Введите угол в градусах : ");
-        int gradus = scanner.nextInt();
-        if (gradus<90 && gradus>0){
-            System.out.println("Острый угол");
-        } else if (gradus==90) {
-            System.out.println("Прямой угол");
-        } else if (gradus<=91 && gradus>=179) {
-            System.out.println("Тупой угол");
-        } else if (gradus==180) {
-            System.out.println("Развернутый угол");
-        } else if (gradus>180 && gradus<=360) {
-            System.out.println("Невалидный угол");
-        } else if (gradus<0 || gradus>360) {
-            System.out.println("Тут должна быть ошибка try catch");
-        }
+//        System.out.print("Введите угол в градусах : ");
+//        int gradus = scanner.nextInt();
+//        if (gradus<90 && gradus>0){
+//            System.out.println("Острый угол");
+//        } else if (gradus==90) {
+//            System.out.println("Прямой угол");
+//        } else if (gradus<=91 && gradus>=179) {
+//            System.out.println("Тупой угол");
+//        } else if (gradus==180) {
+//            System.out.println("Развернутый угол");
+//        } else if (gradus>180 && gradus<=360) {
+//            System.out.println("Невалидный угол");
+//        } else if (gradus<0 || gradus>360) {
+//            System.out.println("Тут должна быть ошибка try catch");
+//        }
 
 
 //Задание 2: Оценка кредита
@@ -48,6 +63,22 @@ public class Main {
 //Если все условия выполняются, программа должна сообщить, что кредит одобрен.
 //В противном случае программа должна объяснить причину отказа.
 //
+//        System.out.print("Введите возраст : ");
+//        int age = scanner.nextInt();
+//        System.out.print("Введите ежемесячный доход : ");
+//        int income = scanner.nextInt();
+//        System.out.print("Введите сумму кредита : ");
+//        int credit = scanner.nextInt();
+//        if (age>18 && age<65 && income>50000 && credit<10*income){
+//            System.out.println("Кредит одобрен");
+//        }else if (age<18 || age>65){
+//            System.out.println("Ваш возраст не подходит для обобрения кредита");
+//        } else if (income<50000) {
+//            System.out.println("Ваш доход меньше 50.000 рублей");
+//        } else if (credit>10*income) {
+//            System.out.println("Сумма кредита слишком большая");
+//        }
+
 //3. Задание на switch
 //Задание 3: Калькулятор простых операций
 //Напишите консольную программу, которая запрашивает у пользователя два числа (целые) и оператор (+, -, *, /).
@@ -60,13 +91,66 @@ public class Main {
 //Корректный вывод результата.
 //
 //
+//        System.out.println(" Введите первое число");
+//        int a = scanner.nextInt();
+//
+//        scanner = new Scanner(System.in);
+//        System.out.println("введи действие");
+//        String oper = scanner.nextLine();
+//
+//        System.out.println("Введите второе число");
+//        int b = scanner.nextInt();
+//
+//        switch (oper){
+//            case "+":
+//                System.out.println("Сумма = " + sum(a,b));
+//                break;
+//            case "-":
+//                System.out.println("Вычитание = " + subtraction(a,b));
+//                break;
+//            case "*":
+//                System.out.println("Умножение = " + multiplication(a,b));
+//                break;
+//            case "/":
+//                System.out.println("Деление = " + division(a,b));
+//                break;
+//            default:
+//                System.out.println("E");
+//        }
 //4-5. Задания на while
 //Задание 4: Поиск числа Фибоначчи
-//Пользователь вводит целое положительное число n. Программа должна вывести n-й элемент последовательности Фибоначчи, используя цикл while.
+//Пользователь вводит целое положительное число n. Программа должна вывести n-й элемент последовательности Фибоначчи,
+// используя цикл while.
 //(Последовательность: 0, 1, 1, 2, 3, 5, 8, 13, …)
 //
+//        System.out.println("введите число n");
+//            int n = scanner.nextInt();
+//            if (n == 0) {
+//                System.out.println("0");
+//            }
+//            if (n == 1) {
+//                System.out.println("1");
+//            }
+//            int prev1 = 0;
+//            int prev2 = 1;
+//            int carent = 0;
+//
+//            int i = 2;
+//            while (i <= n){
+//                carent = prev1 + prev2;
+//
+//                prev1 = prev2;
+//                prev2 = carent;
+//                i++;
+//            }
+//
+//        System.out.println(carent);
+
+
+
 //Задание 5: Проверка на палиндром
-//Напишите программу, которая запрашивает у пользователя строку и проверяет, является ли она палиндромом (читается одинаково слева направо и справа налево). Используйте цикл while для проверки.
+//Напишите программу, которая запрашивает у пользователя строку и проверяет, является ли она палиндромом
+// (читается одинаково слева направо и справа налево). Используйте цикл while для проверки.
 //
 //Пример работы:
 //
@@ -76,6 +160,19 @@ public class Main {
 //Введите строку: hello
 //Это не палиндром.
 //
+//        System.out.println("Введите слово для проверки");
+//        String text=scanner.nextLine();
+//        char [] charArray= text.toCharArray();
+//       String a1 ="level";
+//        int i = 0;
+//        while (i < text.length()) {
+//            if (charArray[charArray.length - i - 1] != charArray[i]){
+//                a1="hello";
+//                break;
+//            }
+//            i++;
+//        }
+//        System.out.println("this is pilindpom :" + a1);
 //
 //6-7. Задания на ООП
 //Задание 6: Банковский счет
@@ -87,6 +184,7 @@ public class Main {
 //Конструктор, который принимает начальный баланс и имя владельца.
 //Напишите программу, которая создает объект BankAccount, выполняет несколько операций пополнения и снятия и выводит итоговый баланс.
 //
+
 //Задание 7: Управление заказами
 //Создайте классы Product (товар) и Order (заказ).
 //
