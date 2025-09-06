@@ -1,26 +1,33 @@
 package org.example;
 
+import org.example.zadanie6.BankAccount;
+
+import java.io.*;
+import java.util.List;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static int sum(int a, int b){
-        return a+b;
-    }
-    public static int subtraction(int a, int b){
-        return a-b;
-    }
-    public static int multiplication(int a, int b){
-        return a*b;
-    }
-    public static int division(int a, int b){
-        return a/b;
+    public static int sum(int a, int b) {
+        return a + b;
     }
 
-    public static void main(String[] args) {
+    public static int subtraction(int a, int b) {
+        return a - b;
+    }
 
-        Scanner scanner= new Scanner(System.in);
+    public static int multiplication(int a, int b) {
+        return a * b;
+    }
+
+    public static int division(int a, int b) {
+        return a / b;
+    }
+
+    public static void main(String[] args) throws IOException {
+
+        Scanner scanner = new Scanner(System.in);
 
 //Задания для самостоятельной работы (Java, средний уровень)
 //1-2. Задания на if
@@ -147,7 +154,6 @@ public class Main {
 //        System.out.println(carent);
 
 
-
 //Задание 5: Проверка на палиндром
 //Напишите программу, которая запрашивает у пользователя строку и проверяет, является ли она палиндромом
 // (читается одинаково слева направо и справа налево). Используйте цикл while для проверки.
@@ -184,7 +190,45 @@ public class Main {
 //Конструктор, который принимает начальный баланс и имя владельца.
 //Напишите программу, которая создает объект BankAccount, выполняет несколько операций пополнения и снятия и выводит итоговый баланс.
 //
-
+//        System.out.println("╔══════════════════════════════╗");
+//        System.out.println("║    ДОБРО ПОЖАЛОВАТЬ В БАНК   ║");
+//        System.out.println("╚══════════════════════════════╝");
+//
+//        System.out.println("Имя владельца счета: ");
+//        String owner = scanner.nextLine();
+//        System.out.println("Пополнение на начальный старт: ");
+//        Double balance = scanner.nextDouble();
+//        scanner.nextLine();
+//
+//        BankAccount account = new BankAccount(owner,balance );
+//        boolean run = true;
+//        while (run) {
+//        String comand = scanner.nextLine().trim();
+//        switch (comand) {
+//            case "Пополнение":
+//                System.out.println("На сколько хотите пополнить");
+//                double sum = scanner.nextDouble();
+//                scanner.nextLine();
+//                account.deposit(sum);
+//                break;
+//            case "Снять":
+//                System.out.println("На сколько хотите снять");
+//                double num = scanner.nextDouble();
+//                scanner.nextLine();
+//                account.withdraw(num);
+//                break;
+//            case "Баланс":
+//                account.DisplayBalance();
+//                break;
+//            case "Завершение":
+//                System.out.println("Завершение работы программы.");
+//                run = false;
+//
+//            default:
+//                System.out.println("Неверный выбор");
+//        }
+//
+//        }
 //Задание 7: Управление заказами
 //Создайте классы Product (товар) и Order (заказ).
 //
@@ -194,7 +238,7 @@ public class Main {
 //
 //8-9. Задания на Stream API
 //Задание 8: Фильтрация чисел
-//Дан список чисел List<Integer>. Используйте Stream API, чтобы:
+//Даsн список чисел List<Integer>. Используйте Stream API, чтобы:
 //
 //Оставить только четные числа.
 //Упорядочить их по убыванию.
@@ -202,6 +246,9 @@ public class Main {
 //Пример входных данных: [5, 12, 7, 3, 14, 18, 6]
 //Выход: [18, 14, 12, 6]
 //
+
+//        List<Integer> list = List.of(14, 54, 54, 34, 50, 57, 0, 1, 2, 5, 556);
+//        List<Integer> result = list.stream().filter(s -> s % 2 == 0).
 //Задание 9: Поиск самого длинного слова
 //Дан список строк List<String>. Используйте Stream API, чтобы:
 //
@@ -229,6 +276,25 @@ public class Main {
 //Сумма чисел: 100
 //
 //
+        FileReader fileReader = new FileReader("input.txt");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        int sum = 0;
+        String line;
+
+        while ((line = bufferedReader.readLine()) != null){
+            sum += Integer.parseInt(line);
+            //10 - строка -> число
+        }
+        fileReader.close();
+
+
+        FileWriter fileWriter = new FileWriter("output.txt");
+        fileWriter.write("Сумма чисел этой задачи: " + sum);
+        fileWriter.close();
+
+
+
 //Дополнительно
 //Все задания требуют обработки ошибок (например, если ввод некорректен) и должны быть решены
 //без использования break и continue, если это не критично.
